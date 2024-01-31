@@ -8,6 +8,8 @@ const router = express.Router();
 
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
+const listeController = require("./controllers/ListeConstroller");
+const userController = require("./controllers/UserController");
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
@@ -19,5 +21,12 @@ router.get("/items/:id", itemControllers.read);
 router.post("/items", itemControllers.add);
 
 /* ************************************************************************* */
+
+router.get("/listes/:id", listeController.read);
+router.get("/listes", listeController.readAll);
+
+/* ************************************************************************* */
+
+router.get("/user/:id", userController.read);
 
 module.exports = router;
