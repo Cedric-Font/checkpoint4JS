@@ -62,38 +62,24 @@ export default function ToDoWrapper() {
       </div>
       {/* display todos */}
       <div className="homeContainer">
-        {listes.map(
-          (todo) => {
-            if (todo.isEditing === true) {
-              return (
-                <EditToDoForm
-                  task={todo}
-                  listeId={todo.id}
-                  setHome={setHome}
-                  setCheck={setCheck}
-                  setWork={setWork}
-                  setPersonal={setPersonal}
-                />
-              );
-            }
-            if (todo.names === "home") {
-              <ToDo key={todo.id} task={todo} names={todo.names} />;
-            }
-            return "coucou";
+        {listes.map((todo) => {
+          if (todo.isEditing === true) {
+            return (
+              <EditToDoForm
+                task={todo}
+                listeId={todo.id}
+                setHome={setHome}
+                setCheck={setCheck}
+                setWork={setWork}
+                setPersonal={setPersonal}
+              />
+            );
           }
-          //   todo.isEditing ? (
-          //     <EditToDoForm
-          //       task={todo}
-          //       listeId={todo.id}
-          //       setHome={setHome}
-          //       setCheck={setCheck}
-          //       setWork={setWork}
-          //       setPersonal={setPersonal}
-          //     />
-          //   ) : todo.names === "home" ? (
-          //     <ToDo key={todo.id} task={todo} names={todo.names} />
-          //   ) : null
-        )}
+          if (todo.names === "home") {
+            <ToDo key={todo.id} task={todo} names={todo.names} />;
+          }
+          return "coucou";
+        })}
       </div>
     </div>
   );
