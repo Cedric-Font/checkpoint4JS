@@ -52,8 +52,23 @@ const create = async (req, res, next) => {
   }
 };
 
+const Modify = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const { task } = req.body;
+    const { names } = req.body;
+    await tables.liste.updateListes(task, names, id);
+    res.status(200).send("updated liste");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("coucou");
+    next(err);
+  }
+};
+
 module.exports = {
   read,
   readAll,
   create,
+  Modify,
 };

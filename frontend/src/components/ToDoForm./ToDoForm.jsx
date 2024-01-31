@@ -58,6 +58,7 @@ export default function TodoForm({ addTodo, home, personal, work }) {
           Add Task
         </button>
         <select
+          className="select"
           name="categories"
           id="category-select"
           value={categorie}

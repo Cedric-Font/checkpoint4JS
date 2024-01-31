@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ToDoWrapper.css";
 import ToDo from "../ToDo/ToDo";
-import TodoForm from "../ToDoForm./ToDoForm";
+import ToDoForm from "../ToDoForm./ToDoForm";
 import EditToDoForm from "../EditToDoForm/EditToDoForm";
 
 export default function ToDoWrapper() {
@@ -47,11 +47,39 @@ export default function ToDoWrapper() {
     ]);
   };
 
+  const deleteTodo = (id) => {
+    setListes(listes.filter((todo) => todo.id !== id));
+  };
+
+  const toggleComplete = (id) => {
+    setListes(
+      listes.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const editTodo = async (id) => {
+    setListes(
+      listes.map((todo) =>
+        todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
+      )
+    );
+  };
+
+  const editTask = (task, id) => {
+    setListes(
+      listes.map((todo) =>
+        todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo
+      )
+    );
+  };
+
   return (
     <div className="TodoWrapper">
       <div className="form">
         <h1>Get Things Done !</h1>
-        <TodoForm
+        <ToDoForm
           addTodo={addTodo}
           home={home}
           personal={personal}
@@ -63,7 +91,42 @@ export default function ToDoWrapper() {
       {/* display todos */}
       <div className="homeContainer">
         {listes.map((todo) => {
-          if (todo.isEditing === true) {
+          if (todo.isEditing && todo.names === "home") {
+            return (
+              <EditToDoForm
+                task={todo}
+                listeId={todo.id}
+                setHome={setHome}
+                setCheck={setCheck}
+                setWork={setWork}
+                setPersonal={setPersonal}
+                editTask={editTask}
+                editTodo={editTodo}
+                check={check}
+                home={home}
+                personal={personal}
+                work={work}
+              />
+            );
+          }
+          if (todo.names === "home") {
+            return (
+              <ToDo
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+                names={todo.names}
+              />
+            );
+          }
+          return null;
+        })}
+      </div>
+      <div className="personalContainer">
+        {listes.map((todo) => {
+          if (todo.isEditing && todo.names === "personal") {
             return (
               <EditToDoForm
                 task={todo}
@@ -75,10 +138,48 @@ export default function ToDoWrapper() {
               />
             );
           }
-          if (todo.names === "home") {
-            <ToDo key={todo.id} task={todo} names={todo.names} />;
+          if (todo.names === "personal") {
+            return (
+              <ToDo
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+                names={todo.names}
+              />
+            );
           }
-          return "coucou";
+          return null;
+        })}
+      </div>
+      <div className="workContainer">
+        {listes.map((todo) => {
+          if (todo.isEditing && todo.names === "work") {
+            return (
+              <EditToDoForm
+                task={todo}
+                listeId={todo.id}
+                setHome={setHome}
+                setCheck={setCheck}
+                setWork={setWork}
+                setPersonal={setPersonal}
+              />
+            );
+          }
+          if (todo.names === "work") {
+            return (
+              <ToDo
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+                names={todo.names}
+              />
+            );
+          }
+          return null;
         })}
       </div>
     </div>

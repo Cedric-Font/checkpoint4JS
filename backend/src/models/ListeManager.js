@@ -36,6 +36,14 @@ class ListesManager extends AbstractManager {
     // Return the ID of the newly inserted item
     return result;
   }
+
+  async updateListes(task, names, id) {
+    await this.database.query(
+      `update ${this.table}
+        set task = ? , names = ? WHERE id= ?`,
+      [task, names, id]
+    );
+  }
 }
 
 module.exports = ListesManager;

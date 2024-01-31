@@ -25,6 +25,7 @@ router.post("/items", itemControllers.add);
 router.get("/listes/:id", listeController.read);
 router.get("/listes", listeController.readAll);
 router.post("/listes", listeController.create);
+router.put("/listes/:id", listeController.Modify);
 
 /* ************************************************************************* */
 
