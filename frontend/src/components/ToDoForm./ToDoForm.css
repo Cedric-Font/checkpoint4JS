@@ -1,13 +1,17 @@
+.form {
+  width: 50%;
+}
+
 .formContainer {
   display: flex;
   justify-content: center;
   width: 100%;
-  border: solid green;
 }
 
 .TodoForm {
-  border: solid red;
-  width: 90%;
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 .todo-input {
@@ -17,8 +21,9 @@
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  width: 40%;
+  width: 60%;
   border-radius: 10px;
+  margin-left: 5%;
 }
 
 .todo-input::placeholder {
@@ -29,10 +34,15 @@
 .todo-btn {
   background: #ffffff;
   color: #000000;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #ffae00;
   padding-inline: 0.55rem;
   cursor: pointer;
   height: 1.7rem;
-  margin-left: 30%;
+  margin-left: 10%;
+}
+.select {
+  border-radius: 5px;
+  margin-left: 5%;
+  border: 1px solid #ffae00;
 }
