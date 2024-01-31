@@ -66,9 +66,27 @@ const Modify = async (req, res, next) => {
   }
 };
 
+const Delete = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const result = await tables.liste.read(id);
+    if (result === undefined) {
+      return res.send("liste not found");
+    }
+    await tables.liste.deleteListes(id);
+    res.status(200).send("liste was delete");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("doesn t worf from delete controller");
+    next(err);
+  }
+  return res;
+};
+
 module.exports = {
   read,
   readAll,
   create,
   Modify,
+  Delete,
 };

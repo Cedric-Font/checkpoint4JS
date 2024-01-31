@@ -44,6 +44,10 @@ class ListesManager extends AbstractManager {
       [task, names, id]
     );
   }
+
+  async deleteListes(id) {
+    await this.database.query(`DELETE FROM ${this.table} WHERE id = ?;`, [id]);
+  }
 }
 
 module.exports = ListesManager;

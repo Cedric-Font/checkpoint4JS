@@ -10,6 +10,18 @@ export default function Todo({
   toggleComplete,
   names,
 }) {
+  const handleSubmits = async () => {
+    try {
+      await fetch(`http://localhost:3310/api/listes/${task.id}`, {
+        method: "delete",
+        headers: { "Content-Type": "application/json" },
+      });
+      deleteTodo(task.id);
+    } catch (err) {
+      // Log des erreurs possibles
+      console.error(err);
+    }
+  };
   return (
     <div className={names}>
       <div
@@ -30,7 +42,7 @@ export default function Todo({
         <FontAwesomeIcon
           className="delete-icon"
           icon={faTrash}
-          onClick={() => deleteTodo(task.id)}
+          onClick={handleSubmits}
           onKeyUp={deleteTodo}
         />
       </div>

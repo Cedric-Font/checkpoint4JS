@@ -5,7 +5,6 @@ export default function EditToDoForm({
   editTodo,
   task,
   listeId,
-  deleteTodo,
   setCheck,
   check,
   addTodo,
@@ -15,19 +14,6 @@ export default function EditToDoForm({
 }) {
   const [value, setValue] = useState(task.task);
   const [categorie, setCategorie] = useState("");
-
-  const handleSubmits = async () => {
-    try {
-      await fetch(`http://localhost:3310/api/listes/${task.id}`, {
-        method: "delete",
-        headers: { "Content-Type": "application/json" },
-      });
-      deleteTodo(value, task.id);
-    } catch (err) {
-      // Log des erreurs possibles
-      console.error(err);
-    }
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -73,9 +59,6 @@ export default function EditToDoForm({
       <button type="button" className="todo-btn" onClick={handleSubmit}>
         Update Task
       </button>
-      <button type="button" onClick={handleSubmits}>
-        test
-      </button>
       <select
         name="categories"
         id="category-select"
@@ -98,7 +81,6 @@ EditToDoForm.propTypes = {
   }),
   editTodo: PropTypes.func.isRequired,
   listeId: PropTypes.number.isRequired,
-  deleteTodo: PropTypes.func.isRequired,
   setCheck: PropTypes.func.isRequired,
   check: PropTypes.bool.isRequired,
   addTodo: PropTypes.func.isRequired,
