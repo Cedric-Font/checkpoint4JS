@@ -3,18 +3,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function TodoForm({ addTodo, home, personal, work }) {
-  const [value, setValue] = useState("");
+  const [values, setValues] = useState("");
   const [categorie, setCategorie] = useState("");
 
   const handleSubmits = async (event) => {
     event.preventDefault();
     try {
-      // Appel à l'API pour créer un nouvel utilisateur
       await fetch("http://localhost:3310/api/listes", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          task: value,
+          task: values,
           names: categorie,
           user: 1,
           categorie: 1,
@@ -24,16 +23,16 @@ export default function TodoForm({ addTodo, home, personal, work }) {
       // Log des erreurs possibles
       console.error(err);
     }
-    if (value) {
+    if (values) {
       // add todo
-      if (categorie === "Home") {
-        addTodo(value, home);
+      if (categorie === "home") {
+        addTodo(values, home);
       }
-      if (categorie === "Personal") {
-        addTodo(value, personal);
+      if (categorie === "personal") {
+        addTodo(values, personal);
       }
-      if (categorie === "Work") {
-        addTodo(value, work);
+      if (categorie === "work") {
+        addTodo(values, work);
       }
       // clear form after submission
     }
@@ -49,10 +48,10 @@ export default function TodoForm({ addTodo, home, personal, work }) {
       >
         <input
           type="text"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={values}
+          onChange={(e) => setValues(e.target.value)}
           className="todo-input"
-          placeholder="What is the task today?"
+          // placeholder="What is the task today?"
         />
         <button type="submit" className="todo-btn">
           Add Task

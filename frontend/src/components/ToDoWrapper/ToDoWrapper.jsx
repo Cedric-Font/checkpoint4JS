@@ -9,8 +9,8 @@ export default function ToDoWrapper() {
   const [personal, setPersonal] = useState("personal");
   const [work, setWork] = useState("work");
   const [listes, setListes] = useState([]);
-  const [refresh, setRefresh] = useState(false);
   const [check, setCheck] = useState(false);
+  const [refresh, setRefresh] = useState(false);
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -35,8 +35,8 @@ export default function ToDoWrapper() {
   }, [check]);
 
   const addTodo = (todo, names) => {
-    setListes([
-      ...listes,
+    setListes((prevListes) => [
+      ...prevListes,
       {
         id: getRandomInt(100),
         task: todo,
@@ -45,10 +45,12 @@ export default function ToDoWrapper() {
         names,
       },
     ]);
+    setCheck(!check);
   };
 
   const deleteTodo = (id) => {
     setListes(listes.filter((todo) => todo.id !== id));
+    setCheck(!check);
   };
 
   const toggleComplete = (id) => {
@@ -135,6 +137,13 @@ export default function ToDoWrapper() {
                 setCheck={setCheck}
                 setWork={setWork}
                 setPersonal={setPersonal}
+                editTask={editTask}
+                editTodo={editTodo}
+                check={check}
+                home={home}
+                personal={personal}
+                work={work}
+                deleteTodo={deleteTodo}
               />
             );
           }
@@ -164,6 +173,13 @@ export default function ToDoWrapper() {
                 setCheck={setCheck}
                 setWork={setWork}
                 setPersonal={setPersonal}
+                editTask={editTask}
+                editTodo={editTodo}
+                check={check}
+                home={home}
+                personal={personal}
+                work={work}
+                deleteTodo={deleteTodo}
               />
             );
           }
