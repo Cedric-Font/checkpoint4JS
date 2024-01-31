@@ -36,7 +36,24 @@ const readAll = async (req, res, next) => {
   }
 };
 
+const create = async (req, res, next) => {
+  const liste = req.body;
+  const { user } = req.body;
+  const { categorie } = req.body;
+
+  try {
+    // Fetch all items from the database
+    const listes = await tables.liste.create(liste, categorie, user);
+    // Respond with the items in JSON format
+    res.json(listes);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 module.exports = {
   read,
   readAll,
+  create,
 };
