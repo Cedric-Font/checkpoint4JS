@@ -36,6 +36,7 @@ export default function TodoForm({ addTodo, home, personal, work }) {
       }
       // clear form after submission
     }
+    setValues("");
   };
 
   return (

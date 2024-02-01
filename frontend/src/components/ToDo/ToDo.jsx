@@ -1,4 +1,5 @@
 import React from "react";
+import "./ToDo.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";

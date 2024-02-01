@@ -7,12 +7,33 @@
 }
 .homeContainer {
   width: 40%;
+  background-color: rgba(255, 68, 0, 0.528);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 5%;
+  border: 2px solid black;
 }
 .personalContainer {
   width: 40%;
+  background-color: rgba(4, 166, 211, 0.628);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 5%;
+  border: 2px solid black;
 }
 .workContainer {
   width: 40%;
+  background-color: rgba(7, 195, 0, 0.528);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 5%;
+  border: 2px solid black;
 }
 
 h1 {
@@ -26,4 +47,28 @@ h1 {
   border-radius: 10px;
   border: 2px solid rgb(255, 149, 0);
   width: 50%;
+}
+.todo {
+  width: 50%;
+}
+.homeTitle {
+  margin-right: 80%;
+  font-size: 2.5rem;
+}
+.personalTitle {
+  margin-right: 70%;
+  font-size: 2.5rem;
+}
+.workTitle {
+  margin-right: 80%;
+  font-size: 2.5rem;
+}
+.workContainerEmpty {
+  display: none;
+}
+.homeContainerEmpty {
+  display: none;
+}
+.personalContainerEmpty {
+  display: none;
 }
