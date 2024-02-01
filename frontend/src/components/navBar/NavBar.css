@@ -1,0 +1,66 @@
+.mainNav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(187, 187, 187, 0.547);
+  width: 100vw;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 3%;
+}
+.btnContainer a {
+  margin-right: 10%;
+}
+.btnNav {
+  border: none;
+  background-color: rgba(255, 68, 0, 0.635);
+  border-radius: 10px;
+  width: 10rem;
+  height: 2rem;
+  transition: 250ms;
+  margin-right: 10%;
+}
+.btnNav:hover {
+  scale: 1.05;
+  border: 1px solid white;
+}
+.profilImg {
+  width: 5%;
+  margin-right: 3%;
+}
+.profilLink {
+  width: 40%;
+  border: solid green;
+  justify-content: end;
+}
+@media screen and (max-width: 750px) {
+  .mainNav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(187, 187, 187, 0.547);
+    width: 100vw;
+  }
+  .btnNav {
+    border: none;
+    border-radius: 10px;
+    width: 5rem;
+    height: 2rem;
+    transition: 250ms;
+    font-size: 3vw;
+  }
+  .btnNav {
+    width: 7rem;
+  }
+  .btnContainer {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    margin-left: 3%;
+  }
+  .profilImg {
+    width: 10%;
+  }
+}

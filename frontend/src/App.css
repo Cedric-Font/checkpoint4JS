@@ -6,30 +6,30 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
 /* body {
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
 } */
-
+body {
+  background-color: #dedcc5;
+  height: 100%;
+}
 .App {
   text-align: center;
-  background-color: white;
+  background-color: #dedcc5;
 }
 
 h1 {
   color: #fff;
   margin-bottom: 0.5rem;
   font-size: 1.75rem;
-}
-
-.TodoWrapper {
-  background: #1a1a40;
-  margin-top: 5rem;
-  padding: 2rem;
-  border-radius: 5px;
 }
 
 .todo-input::placeholder {

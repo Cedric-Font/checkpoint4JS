@@ -21,6 +21,7 @@ export default function EditToDoForm({
     try {
       await fetch(`http://localhost:3310/api/listes/${listeId}`, {
         method: "put",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           task: value,

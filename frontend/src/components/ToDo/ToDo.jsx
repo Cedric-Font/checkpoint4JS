@@ -15,6 +15,7 @@ export default function Todo({
     try {
       await fetch(`http://localhost:3310/api/listes/${task.id}`, {
         method: "delete",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
       });
       deleteTodo(task.id);
@@ -24,17 +25,19 @@ export default function Todo({
     }
   };
   return (
-    <div className={names}>
-      <div
-        className={`${task.completed ? "completed" : "incompleted"}`}
-        onClick={() => toggleComplete(task.id)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={toggleComplete}
-      >
-        {task.task}
+    <div className="main">
+      <div className={names}>
+        <div
+          className={`${task.completed ? "completed" : "incompleted"}`}
+          onClick={() => toggleComplete(task.id)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={toggleComplete}
+        >
+          {task.task}
+        </div>
       </div>
-      <div>
+      <div className="icon">
         <FontAwesomeIcon
           className="edit-icon"
           icon={faPenToSquare}
@@ -54,7 +57,7 @@ export default function Todo({
 Todo.propTypes = {
   task: PropTypes.shape({
     task: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired,
+    completed: PropTypes.bool,
     id: PropTypes.number.isRequired,
   }),
   names: PropTypes.string.isRequired,
