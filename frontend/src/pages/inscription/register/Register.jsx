@@ -24,7 +24,7 @@ function Register() {
       });
 
       if (response.status === 500) {
-        navigate("/connection");
+        navigate("/login");
       } else {
         // Log des détails de la réponse en cas d'échec
       }
@@ -82,16 +82,10 @@ function Register() {
   return (
     <div className="inscription">
       <div className="inscription__mainElement">
-        <img
-          className="inscription__mainElement__desktopImg"
-          src="./src/assets/image-login.jpg"
-          alt=""
-        />
-        <img
-          className="inscription__mainElement__mobileImg"
-          src="./src/assets/logop3.svg"
-          alt=""
-        />
+        <div className="inscription__mainElement__desktopImg2">
+          <h2>Welcom</h2>
+          <p>Please create an account for acces to your list</p>
+        </div>
         <div className="inscription__mainElement__formConteneur">
           <h1 className="inscription__mainElement__formConteneur__title">
             Inscrivez vous
@@ -99,14 +93,17 @@ function Register() {
           <form
             action=""
             method="post"
-            className="inscription__mainElement__formConteneur__formulaire"
+            className="inscription__mainElement__formConteneur__formulaire2"
           >
             {ranges.map((e) => (
-              <div className="inscription__mainElement__formConteneur__formulaire__range">
+              <div
+                key={e.text}
+                className="inscription__mainElement__formConteneur__formulaire__range"
+              >
                 <label htmlFor={e.value}>{e.text}</label>
                 <input
                   type={
-                    e.value === "password" || e.value === "confirmePassword"
+                    e.value === "password" || e.value === "confirmPassword"
                       ? "password"
                       : "text"
                   }
@@ -115,13 +112,14 @@ function Register() {
                   value={e.state}
                   onChange={e.function}
                   required
+                  className="input2"
                 />
                 {e.small}
               </div>
             ))}
             <div className="inscription__mainElement__formConteneur__formulaire__range">
               <button
-                className="inscription__mainElement__formConteneur__formulaire__button"
+                className="inscription__mainElement__formConteneur__formulaire__button2"
                 type="submit"
                 onClick={handleSubmit}
               >

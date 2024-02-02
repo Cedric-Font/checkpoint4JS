@@ -52,19 +52,12 @@ export default function Login() {
   return (
     <div className="inscription">
       <div className="inscription__mainElement">
-        <img
-          className="inscription__mainElement__desktopImg"
-          src="./src/assets/image-login.jpg"
-          alt=""
-        />
-        <img
-          className="inscription__mainElement__mobileImg"
-          src="./src/assets/logop3.svg"
-          alt=""
-        />
+        <div className="inscription__mainElement__desktopImg">
+          <h2>Welcome</h2>
+        </div>
         <div className="inscription__mainElement__formConteneur">
-          <h1 className="inscription__mainElement__formConteneur__title">
-            Inscrivez vous
+          <h1 className="inscription__mainElement__formConteneur__titles">
+            Login
           </h1>
           <form
             action=""
@@ -72,7 +65,10 @@ export default function Login() {
             className="inscription__mainElement__formConteneur__formulaire"
           >
             {ranges.map((e) => (
-              <div className="inscription__mainElement__formConteneur__formulaire__range">
+              <div
+                key={e.text}
+                className="inscription__mainElement__formConteneur__formulaire__range"
+              >
                 <label htmlFor={e.value}>{e.text}</label>
                 <input
                   type={
@@ -85,13 +81,15 @@ export default function Login() {
                   value={e.state}
                   onChange={e.function}
                   required
+                  className="inputForm"
+                  autoComplete="password"
                 />
                 {e.small}
               </div>
             ))}
             <div className="inscription__mainElement__formConteneur__formulaire__range">
               <button
-                className="inscription__mainElement__formConteneur__formulaire__button"
+                className="inscription__mainElement__formConteneur__formulaire__buttons"
                 type="submit"
                 onClick={handleSubmit}
               >

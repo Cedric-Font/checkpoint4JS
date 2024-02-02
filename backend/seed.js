@@ -2,6 +2,7 @@
 
 // Load environment variables from .env file
 require("dotenv").config();
+const argon2 = require("argon2");
 
 // Import database client
 const database = require("./database/client");
@@ -11,9 +12,16 @@ const seed = async () => {
     // Declare an array to store the query promises
     // See why here: https://eslint.org/docs/latest/rules/no-await-in-loop
     const queries = [];
-
+    const hashingOptions = {
+      type: argon2.argon2id,
+      memoryCost: 19 * 2 ** 10 /* 19 Mio en kio (19 * 1024 kio) */,
+      timeCost: 2,
+      parallelism: 1,
+    };
+    const mdp = "Cedricfont2!";
+    const newhasPassword = await argon2.hash(mdp, hashingOptions);
     const valuesUser = [
-      ["cedric", "font", "cedricFont@mail.com", "fancover", "toto"],
+      ["cedric", "font", "cedricFont@gmail.com", "fancover", newhasPassword],
       ["john", "smis", "johnSmis@studio.com", "smith", "tata"],
     ];
     for await (const rowValues of valuesUser) {

@@ -27,6 +27,7 @@ router.post("/items", itemControllers.add);
 router.get("/user/:id", userController.read);
 router.post("/user", hashPassword, userController.add);
 router.post("/login", authController.login);
+router.get("/logout", authController.logout);
 
 router.use(verifyToken);
 /* ************************************************************************* */

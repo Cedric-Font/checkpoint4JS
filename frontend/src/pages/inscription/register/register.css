@@ -13,16 +13,22 @@
   display: flex;
   box-shadow: 2px 5px 50px black;
   border-radius: 10px;
-  max-height: 80vh;
   position: fixed;
   left: 50%;
   top: 12%;
   translate: -50%;
+  width: 50%;
+  height: 84%;
 }
-.inscription__mainElement__desktopImg {
-  max-width: 50%;
-  max-height: 100vh;
+.inscription__mainElement__desktopImg2 {
+  background-color: rgba(255, 163, 96, 1);
+  width: 100%;
   border-radius: 10px 0px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
 .inscription__mainElement__mobileImg {
   display: none;
@@ -34,20 +40,23 @@
   min-width: 50%;
 }
 .inscription__mainElement__formConteneur__title {
-  background-color: #454766;
+  background-color: rgba(255, 163, 96, 1);
+  border: 1px solid black;
   width: 100%;
   text-align: center;
   border-radius: 0px 10px 0px 0px;
   font-family: SpaceGrotesque, verdana;
   font-size: 18pt;
 }
-.inscription__mainElement__formConteneur__formulaire {
+.inscription__mainElement__formConteneur__formulaire2 {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2vh;
-  max-height: 100%;
-  overflow: auto;
+  height: 50%;
+  /* gap: 2rem; */
+  /* max-height: 100%; */
+  /* overflow: auto; */
 }
 .inscription__mainElement__formConteneur__formulaire__range {
   display: flex;
@@ -58,14 +67,14 @@
 .inscription__mainElement__formConteneur__formulaire__range__limitRange {
   margin: 1%;
 }
-.inscription__mainElement__formConteneur__formulaire__button {
+.inscription__mainElement__formConteneur__formulaire__button2 {
   margin: 4%;
-  background: linear-gradient(#454766 10px, #20212f);
+  background: rgba(255, 163, 96, 1);
   cursor: pointer;
-  background-color: #454766;
+  background-color: rgba(255, 163, 96, 1);
   border: none;
   border-radius: 4px;
-  height: 35px;
+  /* height: 35px; */
   color: white;
   font-size: 15pt;
   font-weight: bolder;
@@ -75,14 +84,15 @@ label {
   margin-bottom: 2%;
 }
 
-input {
-  background-color: #454766;
-  border: none;
+.input2 {
+  background-color: #ffffff;
+  border: 1px solid black;
   border-radius: 4px;
-  height: 30px;
-  color: white;
+  /* height: 30px; */
+  color: rgb(0, 0, 0);
+  height: 2rem;
+  margin-bottom: 1rem;
 }
-
 @media screen and (max-width: 750px) {
   .inscription__mainElement {
     display: flex;
@@ -92,23 +102,19 @@ input {
     box-shadow: 0px 0px 0px black;
     position: relative;
   }
-  .inscription__mainElement__desktopImg {
-    display: none;
-  }
-  .inscription__mainElement__mobileImg {
-    display: flex;
-    justify-content: center;
-    margin: 15% 25% 15% 25%;
+
+  .inscription__mainElement__desktopImg2 {
+    border-radius: 0px;
   }
   .inscription__mainElement__formConteneur__title {
     display: none;
     width: 100%;
   }
-  .inscription__mainElement__formConteneur__formulaire {
+  .inscription__mainElement__formConteneur__formulaire2 {
     width: 80%;
   }
-  .inscription__mainElement input {
-    height: 6vh;
+  .inscription__mainElement__formConteneur__formulaire__button2 {
+    height: 5rem;
   }
 }
 

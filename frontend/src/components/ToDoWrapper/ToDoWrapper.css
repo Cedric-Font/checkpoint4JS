@@ -1,43 +1,60 @@
 .TodoWrapper {
   width: 100%;
-  background-color: white;
+  background-color: #dedcc5;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10%;
 }
 .homeContainer {
   width: 40%;
   background-color: rgba(255, 68, 0, 0.528);
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-radius: 20px;
   margin-top: 5%;
   border: 2px solid black;
+  padding-left: 2%;
+  box-shadow: 10px 5px 5px black;
+  transition: 250ms;
+}
+.homeContainer:hover {
+  scale: 1.05;
 }
 .personalContainer {
   width: 40%;
   background-color: rgba(4, 166, 211, 0.628);
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-radius: 20px;
   margin-top: 5%;
   border: 2px solid black;
+  padding-left: 2%;
+  box-shadow: 10px 5px 5px black;
+  transition: 250ms;
+}
+.personalContainer:hover {
+  scale: 1.05;
 }
 .workContainer {
   width: 40%;
   background-color: rgba(7, 195, 0, 0.528);
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-radius: 20px;
   margin-top: 5%;
   border: 2px solid black;
+  padding-left: 2%;
+  box-shadow: 10px 5px 5px black;
+  transition: 250ms;
+}
+.workContainer:hover {
+  scale: 1.05;
 }
 
 h1 {
   color: black;
+  font-size: 2vw;
 }
 .form {
   display: flex;
@@ -52,16 +69,19 @@ h1 {
   width: 50%;
 }
 .homeTitle {
-  margin-right: 80%;
-  font-size: 2.5rem;
+  margin-right: 100%;
+  font-size: 2vw;
+  margin-bottom: 3%;
 }
 .personalTitle {
-  margin-right: 70%;
-  font-size: 2.5rem;
+  margin-right: 100%;
+  font-size: 2vw;
+  margin-bottom: 3%;
 }
 .workTitle {
-  margin-right: 80%;
-  font-size: 2.5rem;
+  margin-right: 100%;
+  font-size: 2vw;
+  margin-bottom: 3%;
 }
 .workContainerEmpty {
   display: none;
@@ -71,4 +91,74 @@ h1 {
 }
 .personalContainerEmpty {
   display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .TodoWrapper {
+    margin-top: 5rem;
+    border-radius: 5px;
+    padding: 0;
+  }
+  .form {
+    width: 100vw;
+    box-shadow: 10px 5px 5px black;
+  }
+  .form h1 {
+    font-size: 5vw;
+  }
+  .todoForm {
+    display: flex;
+    align-items: center;
+  }
+  .homeContainer {
+    width: 70%;
+    background-color: rgba(255, 68, 0, 0.528);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding-bottom: 3%;
+    border: 2px solid black;
+    align-items: start;
+    padding-left: 3%;
+    box-shadow: 10px 5px 5px black;
+  }
+  .personalContainer {
+    width: 70%;
+    background-color: rgba(4, 166, 211, 0.628);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding-bottom: 3%;
+    border: 2px solid black;
+    align-items: start;
+    padding-left: 3%;
+    box-shadow: 10px 5px 5px black;
+  }
+  .workContainer {
+    width: 70%;
+    background-color: rgba(7, 195, 0, 0.528);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-top: 5%;
+    padding-bottom: 3%;
+    border: 2px solid black;
+    align-items: start;
+    padding-left: 3%;
+    box-shadow: 10px 5px 5px black;
+  }
+  .homeTitle {
+    margin-right: 100%;
+    font-size: 6vw;
+  }
+  .personalTitle {
+    margin-right: 70%;
+    font-size: 6vw;
+  }
+  .workTitle {
+    margin-right: 80%;
+    font-size: 6vw;
+  }
 }

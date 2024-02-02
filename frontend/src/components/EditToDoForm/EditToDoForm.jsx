@@ -21,6 +21,7 @@ export default function EditToDoForm({
     try {
       await fetch(`http://localhost:3310/api/listes/${listeId}`, {
         method: "put",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           task: value,
@@ -64,6 +65,7 @@ export default function EditToDoForm({
         id="category-select"
         value={categorie}
         onChange={(e) => setCategorie(e.target.value)}
+        required
       >
         <option value="">category</option>
         <option value="home">Home</option>
