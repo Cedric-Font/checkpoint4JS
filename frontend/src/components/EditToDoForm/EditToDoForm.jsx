@@ -65,6 +65,7 @@ export default function EditToDoForm({
         id="category-select"
         value={categorie}
         onChange={(e) => setCategorie(e.target.value)}
+        required
       >
         <option value="">category</option>
         <option value="home">Home</option>

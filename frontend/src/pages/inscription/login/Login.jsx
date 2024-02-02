@@ -55,11 +55,6 @@ export default function Login() {
         <div className="inscription__mainElement__desktopImg">
           <h2>Welcome</h2>
         </div>
-        <img
-          className="inscription__mainElement__mobileImg"
-          src="./src/assets/logop3.svg"
-          alt=""
-        />
         <div className="inscription__mainElement__formConteneur">
           <h1 className="inscription__mainElement__formConteneur__titles">
             Login
@@ -87,6 +82,7 @@ export default function Login() {
                   onChange={e.function}
                   required
                   className="inputForm"
+                  autoComplete="password"
                 />
                 {e.small}
               </div>

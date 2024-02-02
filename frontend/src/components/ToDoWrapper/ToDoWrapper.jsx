@@ -125,11 +125,14 @@ export default function ToDoWrapper() {
           work={work}
           refresh={refresh}
           setRefresh={setRefresh}
+          key="80"
         />
       </div>
       {/* display todos */}
-      <div className={homeClass} id="homeContainer">
-        <h2 className="homeTitle">Home</h2>
+      <div className={homeClass} id="homeContainer" key="homeKey">
+        <h2 className="homeTitle" key="homesKey">
+          Home
+        </h2>
         {listes.map((todo) => {
           if (todo.isEditing && todo.names === "home") {
             return (
@@ -146,6 +149,7 @@ export default function ToDoWrapper() {
                 home={home}
                 personal={personal}
                 work={work}
+                key={todo.names}
               />
             );
           }
@@ -166,8 +170,10 @@ export default function ToDoWrapper() {
           return null;
         })}
       </div>
-      <div className={personalClass} id="personalContainer">
-        <h2 className="personalTitle">Personal</h2>
+      <div className={personalClass} id="personalContainer" key="personalKey">
+        <h2 className="personalTitle" key="personalsKey">
+          Personal
+        </h2>
         {listes.map((todo) => {
           if (todo.isEditing && todo.names === "personal") {
             return (
@@ -185,6 +191,7 @@ export default function ToDoWrapper() {
                 personal={personal}
                 work={work}
                 deleteTodo={deleteTodo}
+                key={todo.names}
               />
             );
           }
@@ -205,8 +212,10 @@ export default function ToDoWrapper() {
           return null;
         })}
       </div>
-      <div className={workClass} id="workContainer">
-        <h2 className="workTitle">work</h2>
+      <div className={workClass} id="workContainer" key="workKey">
+        <h2 className="workTitle" key="worksKey">
+          work
+        </h2>
         {listes.map((todo) => {
           if (todo.isEditing && todo.names === "work") {
             return (
@@ -224,6 +233,7 @@ export default function ToDoWrapper() {
                 personal={personal}
                 work={work}
                 deleteTodo={deleteTodo}
+                key={todo.names}
               />
             );
           }

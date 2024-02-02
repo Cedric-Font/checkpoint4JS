@@ -24,7 +24,7 @@ function Register() {
       });
 
       if (response.status === 500) {
-        navigate("/connection");
+        navigate("/login");
       } else {
         // Log des détails de la réponse en cas d'échec
       }
@@ -86,11 +86,6 @@ function Register() {
           <h2>Welcom</h2>
           <p>Please create an account for acces to your list</p>
         </div>
-        <img
-          className="inscription__mainElement__mobileImg"
-          src="./src/assets/logop3.svg"
-          alt=""
-        />
         <div className="inscription__mainElement__formConteneur">
           <h1 className="inscription__mainElement__formConteneur__title">
             Inscrivez vous
@@ -108,7 +103,7 @@ function Register() {
                 <label htmlFor={e.value}>{e.text}</label>
                 <input
                   type={
-                    e.value === "password" || e.value === "confirmePassword"
+                    e.value === "password" || e.value === "confirmPassword"
                       ? "password"
                       : "text"
                   }
